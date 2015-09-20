@@ -1,0 +1,22 @@
+  [1m[36m (171.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (96.6ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUser (20150918100538)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (163.5ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "email" character varying(255), "image" character varying(255), "first_name" character varying(255), "last_name" character varying(255), "device_id" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150918100538"]]
+  [1m[36m (23.3ms)[0m  [1mCOMMIT[0m
+Migrating to CreateItem (20150918110127)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (225.9ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "uuid-ossp"[0m
+  [1m[35m (437.1ms)[0m  CREATE TABLE "items" ("id" serial primary key, "item_name" character varying(255), "price" integer, "uuid" uuid DEFAULT uuid_generate_v4(), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150918110127"]]
+  [1m[35m (17.8ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateOrderHistory (20150918113856)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (57.0ms)[0m  [1mCREATE TABLE "order_histories" ("id" serial primary key, "user_id" integer, "item_id" integer, "order_time" timestamp, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150918113856"]]
+  [1m[36m (19.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.5ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"

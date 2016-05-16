@@ -1,2 +1,2 @@
 collection @items
-	extends('items/item')
+	attributes :id,:price,:item_name

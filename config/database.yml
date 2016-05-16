@@ -85,5 +85,5 @@ test:
 production:
   <<: *default
   database: track_bill_production
-  username: track_bill
-  password: <%= ENV['TRACK_BILL_DATABASE_PASSWORD'] %>
+  # username: track_bill
+  # password: <%= ENV['TRACK_BILL_DATABASE_PASSWORD'] %>

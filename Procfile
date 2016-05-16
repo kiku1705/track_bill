@@ -1,3 +1,3 @@
 //web: rails s -p $PORT
-web: bundle exec puma -p $PORT -c ./config/puma.rb
+web: bundle exec puma -p $PORT -C ./config/puma.rb
 dj: rake jobs:work

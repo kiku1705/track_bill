@@ -1,4 +1,4 @@
-class Api::OrderHistoryController < Api::BaseController
+class Api::OrderHistoriesController < Api::BaseController
 
 	def order_histories
 		if params[:order_histories]

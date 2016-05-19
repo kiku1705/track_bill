@@ -14,7 +14,7 @@ class Api::OrderHistoriesController < Api::BaseController
 	end
 
 	def index
-		user = User.includes(:items).find_by_device_id(params[:user][:device_id])
-		@items = user.items
+		user = User.find_by_device_id(params[:user][:device_id])
+		@items = user.orders
 	end
 end

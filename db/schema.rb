@@ -11,15 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150918113856) do
+ActiveRecord::Schema.define(version: 20160517081053) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
 
+  create_table "item_prices", force: true do |t|
+    t.integer "item_id"
+    t.integer "price"
+    t.integer "organisation_id"
+  end
+
   create_table "items", force: true do |t|
     t.string   "item_name"
-    t.integer  "price"
     t.uuid     "uuid",       default: "uuid_generate_v4()"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -27,8 +32,15 @@ ActiveRecord::Schema.define(version: 20150918113856) do
 
   create_table "order_histories", force: true do |t|
     t.integer  "user_id"
-    t.integer  "item_id"
+    t.integer  "item_price_id"
     t.datetime "order_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "organisations", force: true do |t|
+    t.string   "name"
+    t.uuid     "uuid",       default: "uuid_generate_v4()"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -41,6 +53,7 @@ ActiveRecord::Schema.define(version: 20150918113856) do
     t.string   "device_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "organisation_id"
   end
 
 end

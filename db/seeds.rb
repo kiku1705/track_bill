@@ -5,7 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
+organisation = Organisation.create(name:'Metacube')
 items = [{item_name:'Chai',price:7},
 		{item_name:'Kachori',price:15},
 		{item_name:'Fried Idli',price:25},
@@ -16,6 +16,8 @@ items = [{item_name:'Chai',price:7},
 		{item_name:'Mirchi Bada',price:10}
 	]
 	items.each do |item|
+		price = item.delete(:price)
 		exist_item = Item.find_by(item_name:item[:item_name])
-		Item.create(item) if exist_item.blank?
+		exist_item = Item.create(item) if exist_item.blank?
+		ItemPrice.create(item_id:exist_item.id,price:price,organisation_id:organisation.id)
 	end

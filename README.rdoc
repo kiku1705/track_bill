@@ -5,24 +5,21 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+## Ruby version 
+  ruby 2.1.0p0 with rails 4.1.8
 
-* System dependencies
+## System dependencies and setup
+  Running with puma server to run after application setup start server with the command 
+  'rails s Puma' 
 
-* Configuration
+## Database creation
+	Using Postgresql 9.4.5
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
+## Database initialization
+	Run rake db:seed:track_bill
+	For basic item list with prices for an organisation
+## Summary
+  Track bill is only to provide REST API's for mobile devlopment.Track bill provide support to track your daily canteen expenses within an organisation.
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.

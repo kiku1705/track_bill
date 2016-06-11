@@ -197,6 +197,7 @@ DEPENDENCIES
   carrierwave-crop
   fog
   jbuilder (~> 2.0)
+  jquery-rails
   oj
   pg
   protected_attributes (~> 1.0.1)
@@ -206,6 +207,3 @@ DEPENDENCIES
   rmagick
   sdoc (~> 0.4.0)
   spring
-
-BUNDLED WITH
-   1.10.6

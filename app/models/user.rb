@@ -1,9 +1,9 @@
 class User < ActiveRecord::Base
 	attr_accessible \
-		:first_name,
-		:last_name,
 		:email,
-		:image
+		:first_name,
+		:image,
+		:last_name
 
 	mount_uploader :image, ImageUploader
 	
@@ -13,6 +13,5 @@ class User < ActiveRecord::Base
 
 	belongs_to :organisation
 
-	has_many :order_histories
-	has_many :orders, through: :order_histories, source: :item_price
+	has_many :orders
 end

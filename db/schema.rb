@@ -11,49 +11,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160517081053) do
+ActiveRecord::Schema.define(version: 20160516113856) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
 
-  create_table "item_prices", force: true do |t|
-    t.integer "item_id"
-    t.integer "price"
-    t.integer "organisation_id"
-  end
-
-  create_table "items", force: true do |t|
-    t.string   "item_name"
-    t.uuid     "uuid",       default: "uuid_generate_v4()"
+  create_table "item_prices", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+    t.string   "item_id"
+    t.string   "organisation_id"
+    t.float    "price"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "order_histories", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "item_price_id"
-    t.datetime "order_time"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "organisations", force: true do |t|
+  create_table "items", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "name"
-    t.uuid     "uuid",       default: "uuid_generate_v4()"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
-    t.string   "email"
-    t.string   "image"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "device_id"
+  create_table "orders", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+    t.string   "item_price_id"
+    t.datetime "order_time"
+    t.string   "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "organisation_id"
+  end
+
+  create_table "organisations", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+    t.string   "device_id"
+    t.string   "email"
+    t.string   "first_name"
+    t.string   "image"
+    t.string   "last_name"
+    t.string   "organisation_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

@@ -8,10 +8,10 @@ deployment:
     heroku:
       appname: mcanteen
     branch: master
-    	commands:
-	      - heroku maintenance:on --app mcanteen
-	      - '[[ ! -s "$(git rev-parse --git-dir)/shallow" ]] || git fetch --unshallow'
-	      - git push -f git@heroku.com:track_bill.git $CIRCLE_SHA1:master
-	      - heroku run rake db:migrate --app mcanteen
-	      - heroku restart --app mcanteen
-	      - heroku maintenance:off --app mcanteen
+      commands:
+        - heroku maintenance:on --app mcanteen
+        - '[[ ! -s "$(git rev-parse --git-dir)/shallow" ]] || git fetch --unshallow'
+        - git push -f git@heroku.com:track_bill.git $CIRCLE_SHA1:master
+        - heroku run rake db:migrate --app mcanteen
+        - heroku restart --app mcanteen
+        - heroku maintenance:off --app mcanteen

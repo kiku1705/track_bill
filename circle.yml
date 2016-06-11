@@ -4,7 +4,7 @@ machine:
 
 
 deployment:
-  staging:
+  master:
     heroku:
       appname: mcanteen
     branch: master

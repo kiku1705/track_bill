@@ -1,0 +1,5 @@
+# Ignore all logfiles and tempfiles.
+/log/*.log
+/log/*.lck
+/tmp
+db/schema.rb

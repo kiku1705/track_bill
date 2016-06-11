@@ -8,6 +8,8 @@ Rails.application.routes.draw do
       end
     end 
 
-    resources :items, only: [:index]
+    resources :organisations, only: [] do
+      resources :item_prices, only: [:index]
+    end
   end
 end

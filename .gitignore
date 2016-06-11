@@ -1,5 +1,12 @@
-# Ignore all logfiles and tempfiles.
-/log/*.log
-/log/*.lck
-/tmp
+# logs #
+log
+*.log
+
+# tmp #
+tmp
+
+# db schema #
 db/schema.rb
+
+# db config #
+config/database.yml

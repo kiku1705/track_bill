@@ -1,2 +1,2 @@
 collection @items
-	attributes :id,:price,:item_name
+	attributes :id, :name, :price

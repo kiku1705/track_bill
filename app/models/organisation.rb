@@ -1,5 +1,6 @@
 class Organisation < ActiveRecord::Base
-	attr_accessible :name
+	attr_accessible \
+		:name
 
 	has_many :users
 end

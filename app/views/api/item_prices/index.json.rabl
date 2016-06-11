@@ -1,3 +1,4 @@
 collection @items
-	attributes :id,:item_id,:price
-	node(:item_name) { |obj| obj.item.item_name}
+	attributes :id, :item_id, :price
+
+	node(:name) { |obj| obj.item.name}

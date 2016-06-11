@@ -6,3 +6,5 @@ machine:
 deployment:
   dev:
     branch: master
+    heroku:
+      appname: mcanteen

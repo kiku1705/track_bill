@@ -5,8 +5,6 @@ machine:
 
 deployment:
   master:
-    heroku:
-      appname: mcanteen
     branch: master
     commands:
       - heroku maintenance:on --app mcanteen

@@ -1,5 +1,5 @@
 class Order < ActiveRecord::Base
-	attr_accessible \		
+	attr_accessible \
 		:item_price_id,
 		:order_time,
 		:user_id

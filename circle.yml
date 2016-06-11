@@ -8,7 +8,7 @@ deployment:
     branch: master
     commands:
       - heroku maintenance:on --app mcanteen
-      - git push -f git@heroku.com:track_bill.git $CIRCLE_SHA1:master
+      - git push -f git@heroku.com:mcanteen.git $CIRCLE_SHA1:master
       - heroku run rake db:migrate --app mcanteen
       - heroku restart --app mcanteen
       - heroku maintenance:off --app mcanteen
